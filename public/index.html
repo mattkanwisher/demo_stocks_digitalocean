@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="js/chart.min.js"> </script>
+        <script src='/socket.io/socket.io.js'></script>
+        <script>
+            var socket = io.connect("localhost:3000");
+
+            socket.on('ticker', function(data) {
+                console.log(data)
+
+            myLineChart.data.datasets[0].data.shift();
+            myLineChart.data.datasets[0].data.push(data.value);
+            myLineChart.update();            
+
+//                addMessage(data.message);
+
+                // Respond with a message including this clients' id sent from the server
+ //               socket.emit('i am client', {data: 'foo!', id: data.id});
+            });
+            socket.on('time', function(data) {
+                addMessage(data.time);
+            });
+            socket.on('error', console.error.bind(console));
+            socket.on('message', console.log.bind(console));
+
+            function addMessage(message) {
+                var text = document.createTextNode(message),
+                    el = document.createElement('li'),
+                    messages = document.getElementById('messages');
+
+                el.appendChild(text);
+                messages.appendChild(el);
+            }
+        </script>
+    </head>
+    <body>
+        <canvas id="myChart" width="400" height="400"></canvas>
+        <ul id='messages'></ul>
+
+        <script>
+            var ctx = document.getElementById("myChart");
+            var myLineChart = new Chart(ctx, {
+                type: 'line',
+        data: {
+            labels: ['Item 1', 'Item 2', 'Item 3'],
+            datasets: [{
+                data: [10, 20, 30]
+            }]
+        },
+                options: {        
+                    title: {
+                    display: true,
+                    text: 'Custom Chart Title'
+                }}
+            });
+        </script>        
+    </body>
+</html>
