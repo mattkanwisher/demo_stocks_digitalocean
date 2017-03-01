@@ -15,6 +15,14 @@
 
 ---
 
+## To follow Along
+
+## Grab this repo
+https://github.com/mattkanwisher/demo\_stocks\_digitalocean
+
+
+---
+
 ## Building a real time app
 ![](boat_sunrise.jpg)
 
@@ -47,7 +55,7 @@
 - Sockets
 - Http Polling
 - Http Long Poll
-- Browser Push (lookup name)
+- Server side events
 - http 2.0 Server Push
 
 ---
@@ -82,12 +90,13 @@ initial Node.JS Application
 
 ---
 
-diagram here of existing app
+## Current Arch
+![inline](simple_app.png)
 
 
 ---
 
-diagram of using redis
+![inline](redis.png)
 
 
 ---
@@ -110,7 +119,7 @@ diagram of using redis
 
 ---
 
-load balancer arch
+![inline](final_arch2.png)
 
 ---
 
@@ -147,6 +156,10 @@ load balancer arch
 
 ##  Questions?
 ![](jump2.jpg)
+
+Code:
+https://github.com/mattkanwisher/demo\_stocks\_digitalocean
+
 
 <!--
 ![inline right 90%](digital_ocean_logo.png)

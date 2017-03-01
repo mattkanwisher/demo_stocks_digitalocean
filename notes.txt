@@ -24,6 +24,13 @@ npm install chart.js --save
 
 sudo apt-get install redis
 
+#docker
+
+docker build -t mcampbelll/node_finance_web .
+
+docker push mcampbelll/node_finance_web
+
+docker run -it -p 3000:3000 mcampbelll/node_finance_web
 
 ##TODO
 sudo npm install -g pm2

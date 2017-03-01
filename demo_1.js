@@ -1,6 +1,4 @@
-var http = require('http')//,
-//    fs = require('fs'),
-//    index = fs.readFileSync(__dirname + '/public/index.html');
+var http = require('http')
 
 var express = require('express'),
 app = express(),
