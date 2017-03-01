@@ -19,7 +19,7 @@ io.sockets.on('connection', function (socket) {
   
   setInterval(function(){
     var data = getRandomInt(0,100);
-//    io.sockets.emit('ticker', {ticker: "dummy", value: data});
+    io.sockets.emit('ticker', {ticker: "dummy", value: data});
   },2000);
   
 });
