@@ -11,6 +11,8 @@ sudo apt-get install nodejs
 
 sudo apt-get install build-essential -y
 
+git clone https://github.com/mattkanwisher/demo_stocks_digitalocean.git
+
 vi server.js
 chmod +x server.js
 
@@ -27,3 +29,24 @@ sudo apt-get install redis
 sudo npm install -g pm2
 
 wget https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js
+
+
+#Redis machine
+https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-redis-on-ubuntu-16-04
+
+sudo apt-get update
+sudo apt-get install build-essential tcl
+
+curl -O http://download.redis.io/redis-stable.tar.gz
+tar xzvf redis-stable.tar.gz
+cd redis-stable
+make
+sudo make install
+sudo mkdir /etc/redis
+sudo cp /tmp/redis-stable/redis.conf /etc/redis
+vi /etc/redis/redis.conf
+
+		supervised systemd
+		dir /var/lib/redis
+
+vi  /etc/systemd/system/redis.service
