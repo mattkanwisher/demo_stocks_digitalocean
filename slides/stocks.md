@@ -1,30 +1,43 @@
 # Real time data and charting in the cloud
+![](mountain.jpg)
 
 ---
 
-## About me
+### About me
+
+- Tech Lead Digital Ocean
+- Worked in Finance at Bloomberg & Thomson Reuters
+- Built Timeseries database
+- Writing Book Microservices in Go
+
+<!-- ![inline](book.png) -->
+![inline right](digital_ocean_logo.png)
 
 ---
 
 ## Building a real time app
-
+![](boat_sunrise.jpg)
 
 ---
 
 ## What is a Timeseries
+![](rain.jpg)
 
+---
+
+![inline](example-stock.png)
 
 ---
 
 ## What is a microservice
+![](thai_boat.jpg)
 
----
 
-todo stock image here
 
 ---
 
 ## What is realtime?
+![](sunrise.jpg)
 
 ---
 
@@ -40,25 +53,32 @@ todo stock image here
 ---
 
 ## Sockets.io Library
+![](shoes.png)
 
 ---
 
-## Demo build initial Node.JS Application
+## Demo build App
 
-<!-- show demo_server1.js
+<!-- 
+initial Node.JS Application
+	show demo_server1.js
 	index.html
 -->
-
+<!--
 ---
 
 
 ## Deploy on droplet
 
-<!-- spin up DO droplet -->
 ---
+-->
+
+---
+<!-- spin up DO droplet  -->	
 
 
 ## Scaling realtime Apps
+![](sunrise2.jpg)
 
 ---
 
@@ -79,12 +99,14 @@ diagram of using redis
 
 ---
 
-## Preparing for real production
+## Production
+![](mountain2.jpg)
 
 ---
 
 
 ## Docker
+![](kite.jpg)
 
 ---
 
@@ -93,25 +115,29 @@ load balancer arch
 ---
 
 ## Demo Load balancer/Docker
+![](bricks_windows.jpg)
 
 ---
 
 ## Kubernetes
+![](jump.jpg)
 
 <!-- arch? -->
 
 ---
 
 ## Ansible
+![](rain.jpg)
 
 ---
 
-Logs / Monitoring
+## Logs / Monitoring
+![](bricks1.jpg)
 
 ---
 
-
-Finalize DNS
+## DNS
+![](shoes.png)
 
 ---
 
@@ -119,8 +145,13 @@ Finalize DNS
 
 ---
 
-## Questions?
+##  Questions?
+![](jump2.jpg)
 
+<!--
+![inline right 90%](digital_ocean_logo.png)
+-->
+<!-- todo add DigitalOcean Image -->
 
 
 <!-- mobile resize? --> 
