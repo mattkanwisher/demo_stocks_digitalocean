@@ -4,26 +4,17 @@
         <script src="js/chart.min.js"> </script>
         <script src='/socket.io/socket.io.js'></script>
         <script>
-            var socket = io.connect("localhost:3000");
+            var socket = io.connect("");
 
             socket.on('ticker', function(data) {
-                console.log(data)
-
-//            myLineChart.data.datasets[0].data.shift();
-            myLineChart.data.labels.push("");
+              console.log(data)
+              myLineChart.data.labels.push("");
               myLineChart.data.datasets[0].data.push(data.value);
               myLineChart.update();            
             });
             socket.on('error', console.error.bind(console));
             socket.on('message', console.log.bind(console));
         </script>
-        <style>
-        canvas{
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-        }
-        </style>
     </head>
     <body>
         <div style="width:75%">

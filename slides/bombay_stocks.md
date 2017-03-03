@@ -160,6 +160,8 @@ initial Node.JS Application
 Code:
 https://github.com/mattkanwisher/demo\_stocks\_digitalocean
 
+Matthew Campbell
+Twitter: @kanwisher
 
 <!--
 ![inline right 90%](digital_ocean_logo.png)
