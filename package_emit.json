@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Node.js on Docker",
   "author": "First Last <first.last@example.com>",
-  "main": "app.js",
+  "main": "final_emiter.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node final_emiter.js"
   },
   "dependencies": {
     "chart.js": "^2.5.0",

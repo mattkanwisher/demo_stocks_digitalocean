@@ -124,11 +124,6 @@ initial Node.JS Application
 
 ---
 
-## Ansible
-![](rain.jpg)
-
----
-
 ## Logs / Metrics
 ![](bricks1.jpg)
 

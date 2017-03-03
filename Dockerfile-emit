@@ -4,10 +4,12 @@ FROM node:boron
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
+
 # Bundle app source
 COPY . /usr/src/app
-RUN npm install
+# Install app dependencies
 COPY package_emit.json /usr/src/app/package.json
+RUN npm install
 
 EXPOSE 3000
 
