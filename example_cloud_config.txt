@@ -1,0 +1,52 @@
+#cloud-config
+runcmd:
+  - wget -O - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo apt-key add -
+  - echo 'deb https://packages.elastic.co/beats/apt stable main' | sudo tee /etc/apt/sources.list.d/filebeat.list
+  - sudo apt-get update
+  - sudo apt-get install filebeat
+  - sudo update-rc.d filebeat defaults
+  - sudo service filebeat start
+write_files:
+  - content: |
+      -----BEGIN CERTIFICATE-----
+      MIIDbjCCAlagAwIBAgIJAM14z1vxqeZEMA0GCSqGSIb3DQEBCwUAMEUxCzAJBgNV
+      BAYTAkFVMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRlcm5ldCBX
+      aWRnaXRzIFB0eSBMdGQwHhcNMTcwMzAxMTI1NzMwWhcNMjcwMjI3MTI1NzMwWjBF
+      MQswCQYDVQQGEwJBVTETMBEGA1UECAwKU29tZS1TdGF0ZTEhMB8GA1UECgwYSW50
+      ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+      CgKCAQEAmjs7+Bgxh5f0t3KSPQ5+nQiq5gcKzGVhDFp5nCVeWIal43e581xaM9r9
+      /Cvhg6iPhMrZdO2j56VnCy4P1P6nKv0qbAiGUioOlAxyDGpP9J6CBIkUddBhfkoA
+      LqNoh2Xf0R7cRl5jcNQ46Z1M41A/4kkt1yI4S2hGiJfpRHKQXiLH7lLpPJ/RDKv8
+      DHd0X1p+/i7sXuoxeIsWpJL8u5duIn4td+Gj2W47iILJ0NLUw8rk9damlFD2Imsv
+      bLDabWewt6vQ3nyqgeTTwwyZ0KTbJO92AGNkYdtTV9WnHrkxMKToauOLOAlrsvfv
+      eY8kZ5ITyMNh+cHi3KAeW6dnwr+vywIDAQABo2EwXzAdBgNVHQ4EFgQUVuJHKrXr
+      lVKSgqBYRQiGIpqF7k8wHwYDVR0jBBgwFoAUVuJHKrXrlVKSgqBYRQiGIpqF7k8w
+      DAYDVR0TBAUwAwEB/zAPBgNVHREECDAGhwSLOwfsMA0GCSqGSIb3DQEBCwUAA4IB
+      AQBHGnntIjL2gR1O7BrvYQHlFO+JrphXHI+/X2ogxsdtN7eAH6htfXwF3EQnLjvU
+      lDwIXdfNm8ij618n3P1ySECn/CJckFd6b6lcJp3NyjPALWPCX07kIzYQVYF3iQ2r
+      c8wPZEbCmYEH30psohQn2hyQBkZsvqXoqqz7DF/+FjVpLGkC9AGRYJXIgjeIltzo
+      rVR5QeLSYxV/xanog/Ytaolmjicwi02Rcv9rtasCsg50SU75Oiw0y01ogfgXAsYz
+      iOuTCDG2YZedWAuv/5AdLj8Y+GvgzDZs4h7LWsvcMEwFlkVDt7117jAd94RndGNh
+      CKhOnIsjm/cCwoYK9zuRbOrC
+      -----END CERTIFICATE-----
+    path: /etc/pki/tls/certs/logstash-forwarder.crt
+  - content: |
+      filebeat:
+        prospectors:
+          -
+            paths:
+              - /var/log/*.log
+            input_type: log
+        registry_file: /var/lib/filebeat/registry
+      output:
+        logstash:
+          hosts: ["139.59.7.236:5044"]
+          worker: 1
+          index: filebeat
+          tls:
+            certificate_authorities: ["/etc/pki/tls/certs/logstash-forwarder.crt"]
+      shipper:
+      logging:
+        files:
+          rotateeverybytes: 10485760 # = 10MB
+    path: /etc/filebeat/filebeat.yml
